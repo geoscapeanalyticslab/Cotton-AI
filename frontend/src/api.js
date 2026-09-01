@@ -31,11 +31,10 @@ export async function fetchDistrictStats(districtName) {
 
 /**
  * Climate stats are only available via GEE backend (ERA5/CHIRPS/MODIS).
- * Returns null so the Sidebar shows a helpful "requires server" note instead of crashing.
+ * Returns an explicit marker so the UI renders gracefully instead of crashing.
  */
 export async function fetchStats(fid, year) {
-  // No local climate data available — return null to signal "not supported"
-  return null;
+  return { no_data: true, source: 'GEE backend required for live climate data' };
 }
 
 /**
