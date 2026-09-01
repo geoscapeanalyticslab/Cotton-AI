@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+:root {
+  color-scheme: light;
+
+  --color-primary: #1e40af;
+  --color-primary-strong: #1e3a8a;
+  --color-on-primary: #ffffff;
+  --color-secondary: #3b82f6;
+  --color-accent: #d97706;
+  --color-destructive: #dc2626;
+
+  --page-bg: #f8fafc;
+  --surface-1: #ffffff;
+  --surface-2: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #47556b;
+  --text-muted: #7c8aa0;
+  --border: #dbeafe;
+  --border-strong: #bfd4fb;
+
+  --series-temp: #2a78d6;
+  --series-temp-night: #1c5cab;
+  --series-rain: #1baf7a;
+  --series-lst-day: #eb6834;
+  --series-lst-night: #4a3aa7;
+
+  --status-good: #0ca30c;
+  --status-warning: #b3760f;
+  --status-critical: #d03b3b;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 12px rgba(15, 23, 42, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme='light'])) {
+    color-scheme: dark;
+    --page-bg: #0b1220;
+    --surface-1: #121a2b;
+    --surface-2: #182338;
+    --text-primary: #f4f7fc;
+    --text-secondary: #b9c4d6;
+    --text-muted: #7e8ba1;
+    --border: #223255;
+    --border-strong: #2c3f6a;
+
+    --series-temp: #3987e5;
+    --series-temp-night: #6ea6ee;
+    --series-rain: #199e70;
+    --series-lst-day: #e78a5c;
+    --series-lst-night: #9085e9;
+
+    --status-good: #0ca30c;
+    --status-warning: #d69a2d;
+    --status-critical: #e66767;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 16px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --page-bg: #0b1220;
+  --surface-1: #121a2b;
+  --surface-2: #182338;
+  --text-primary: #f4f7fc;
+  --text-secondary: #b9c4d6;
+  --text-muted: #7e8ba1;
+  --border: #223255;
+  --border-strong: #2c3f6a;
+
+  --series-temp: #3987e5;
+  --series-temp-night: #6ea6ee;
+  --series-rain: #199e70;
+  --series-lst-day: #e78a5c;
+  --series-lst-night: #9085e9;
+
+  --status-good: #0ca30c;
+  --status-warning: #d69a2d;
+  --status-critical: #e66767;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 16px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: 'Fira Code', ui-monospace, Consolas, monospace;
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
