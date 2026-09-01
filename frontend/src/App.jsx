@@ -119,7 +119,7 @@ export default function App() {
       <header className="app-header">
         <div className="app-title">
           <div className="brand-lockup">
-            <img src="/cotton-icon-brown.png" alt="Cotton AI" className="brand-mark" width="32" height="32" />
+            <img src="/Cotton-AI/cotton-icon-brown.png" alt="Cotton AI" className="brand-mark" width="32" height="32" />
             <h1>
               Cotton<span className="brand-ai">AI</span> <span className="brand-suffix">Sindh Dashboard</span>
             </h1>
