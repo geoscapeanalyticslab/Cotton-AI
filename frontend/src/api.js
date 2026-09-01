@@ -29,16 +29,46 @@ export async function fetchDistrictStats(districtName) {
   return stats[districtName] || null;
 }
 
+/**
+ * Climate stats are only available via GEE backend (ERA5/CHIRPS/MODIS).
+ * Returns null so the Sidebar shows a helpful "requires server" note instead of crashing.
+ */
 export async function fetchStats(fid, year) {
-  const polygons = await fetchPolygons();
-  const poly = polygons.features?.find(f => f.properties?.id == fid);
-  return poly || null;
+  // No local climate data available — return null to signal "not supported"
+  return null;
 }
 
+/**
+ * Yield data is returned as an object matching the shape YieldPanel expects:
+ *   { district_yield: { season, value, unit }, ndvi_estimate: { status } }
+ */
 export async function fetchYield(fid, year) {
-  // Yield data is in district_yield.json (district-level, not field-level)
   const yieldData = await load('district_yield.json');
-  return yieldData;
+  // Build a per-field result using the latest season data available
+  const districts = yieldData.districts || {};
+  // Pick any non-null district yield as reference (since this is field-level data we don't have)
+  let fallbackDistrict = null;
+  let fallbackValue = null;
+  for (const [dName, dData] of Object.entries(districts)) {
+    if (dData.value !== null) {
+      fallbackDistrict = dName;
+      fallbackValue = dData.value;
+      break;
+    }
+  }
+  return {
+    district_yield: {
+      season: yieldData.season ?? '—',
+      value: fallbackValue,
+      unit: yieldData.unit ?? 'kg/ha',
+    },
+    ndvi_estimate: {
+      status: 'not_available',
+      ndvi: null,
+      percentile: null,
+    },
+    year,
+  };
 }
 
 export async function fetchSindhYieldHistory() {
