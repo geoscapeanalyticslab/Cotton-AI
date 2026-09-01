@@ -1,45 +1,46 @@
-export async function fetchPolygons() {
-  const res = await fetch('/api/polygons');
-  if (!res.ok) throw new Error('Failed to load cotton field polygons');
+// api.js — serves data from bundled static files (no backend needed)
+// Uses relative paths so it works both on GitHub Pages (/Cotton-AI/) and localhost
+const DATA = './data/';
+
+async function load(name) {
+  const res = await fetch(DATA + name);
+  if (!res.ok) throw new Error(`Failed to load ${name}`);
   return res.json();
+}
+
+export async function fetchPolygons() {
+  return load('cotton_polygons.geojson');
 }
 
 export async function fetchDistrict() {
-  const res = await fetch('/api/districts');
-  if (!res.ok) throw new Error('Failed to load district boundaries');
-  return res.json();
+  return load('sindh_districts.geojson');
 }
 
 export async function fetchDistricts() {
-  return fetchDistrict();
+  return load('sindh_districts.geojson');
 }
 
 export async function fetchAllDistrictStats() {
-  const res = await fetch('/api/districts/stats');
-  if (!res.ok) throw new Error('Failed to load all district stats');
-  return res.json();
+  return load('sindh_district_stats.json');
 }
 
 export async function fetchDistrictStats(districtName) {
-  const res = await fetch(`/api/district/${encodeURIComponent(districtName)}/stats`);
-  if (!res.ok) throw new Error(`Failed to load stats for district: ${districtName}`);
-  return res.json();
+  const stats = await fetchAllDistrictStats();
+  return stats[districtName] || null;
 }
 
 export async function fetchStats(fid, year) {
-  const res = await fetch(`/api/stats/${fid}?year=${year}`);
-  if (!res.ok) throw new Error('Failed to load climate stats for this field');
-  return res.json();
+  const polygons = await fetchPolygons();
+  const poly = polygons.features?.find(f => f.properties?.id == fid);
+  return poly || null;
 }
 
 export async function fetchYield(fid, year) {
-  const res = await fetch(`/api/yield/${fid}?year=${year}`);
-  if (!res.ok) throw new Error('Failed to load yield data for this field');
-  return res.json();
+  // Yield data is in district_yield.json (district-level, not field-level)
+  const yieldData = await load('district_yield.json');
+  return yieldData;
 }
 
 export async function fetchSindhYieldHistory() {
-  const res = await fetch('/api/yield/sindh-history');
-  if (!res.ok) throw new Error('Failed to load Sindh cotton yield history');
-  return res.json();
+  return load('sindh_cotton_yield_history.json');
 }

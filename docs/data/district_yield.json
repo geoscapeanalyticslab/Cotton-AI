@@ -1,0 +1,8 @@
+{
+  "_comment": "Maintain manually each completed season. 'season' is the label shown in the UI and in the citation (e.g. '2024-25'). 'unit' applies to every district value below. Leave a district's 'value' as null until a real PCCC/PBS figure is entered -- the dashboard shows an em dash rather than a fabricated number for anything left null.",
+  "season": "2024-25",
+  "unit": "kg/ha",
+  "districts": {
+    "Sanghar": { "value": null }
+  }
+}

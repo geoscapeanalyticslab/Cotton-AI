@@ -1,0 +1,2816 @@
+{
+  "Hyderabad": {
+    "district_name": "Hyderabad",
+    "province": "Sindh",
+    "total_agri_area_ha": 358731.3,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 6328.7,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 61,
+        "cotton_area_ha": 6518.6,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 57,
+        "cotton_area_ha": 6075.6,
+        "cotton_pct": 1.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 58,
+        "cotton_area_ha": 6202.1,
+        "cotton_pct": 1.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 37,
+        "cotton_area_ha": 3923.8,
+        "cotton_pct": 1.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 6328.7,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 56,
+        "cotton_area_ha": 5949.0,
+        "cotton_pct": 1.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 58,
+        "cotton_area_ha": 6138.8,
+        "cotton_pct": 1.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 358731.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 6392.0,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Larkana": {
+    "district_name": "Larkana",
+    "province": "Sindh",
+    "total_agri_area_ha": 436852.8,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 436852.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Mirpur Khas": {
+    "district_name": "Mirpur Khas",
+    "province": "Sindh",
+    "total_agri_area_ha": 177143.4,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 60,
+        "cotton_area_ha": 5145.6,
+        "cotton_pct": 2.9,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 61,
+        "cotton_area_ha": 5300.0,
+        "cotton_pct": 3.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 57,
+        "cotton_area_ha": 4939.8,
+        "cotton_pct": 2.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 58,
+        "cotton_area_ha": 5042.7,
+        "cotton_pct": 2.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 37,
+        "cotton_area_ha": 3190.3,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 60,
+        "cotton_area_ha": 5145.6,
+        "cotton_pct": 2.9,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 56,
+        "cotton_area_ha": 4836.9,
+        "cotton_pct": 2.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 58,
+        "cotton_area_ha": 4991.2,
+        "cotton_pct": 2.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 177143.4,
+        "cotton_fields": 60,
+        "cotton_area_ha": 5197.1,
+        "cotton_pct": 2.9,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Sukkur": {
+    "district_name": "Sukkur",
+    "province": "Sindh",
+    "total_agri_area_ha": 144021.7,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 60,
+        "cotton_area_ha": 5153.9,
+        "cotton_pct": 3.6,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 61,
+        "cotton_area_ha": 5308.5,
+        "cotton_pct": 3.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 57,
+        "cotton_area_ha": 4947.7,
+        "cotton_pct": 3.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 58,
+        "cotton_area_ha": 5050.8,
+        "cotton_pct": 3.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 37,
+        "cotton_area_ha": 3195.4,
+        "cotton_pct": 2.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 60,
+        "cotton_area_ha": 5153.9,
+        "cotton_pct": 3.6,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 56,
+        "cotton_area_ha": 4844.7,
+        "cotton_pct": 3.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 58,
+        "cotton_area_ha": 4999.3,
+        "cotton_pct": 3.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 144021.7,
+        "cotton_fields": 60,
+        "cotton_area_ha": 5205.4,
+        "cotton_pct": 3.6,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Badin": {
+    "district_name": "Badin",
+    "province": "Sindh",
+    "total_agri_area_ha": 460888.8,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 60,
+        "cotton_area_ha": 10611.9,
+        "cotton_pct": 2.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 61,
+        "cotton_area_ha": 10930.3,
+        "cotton_pct": 2.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 57,
+        "cotton_area_ha": 10187.4,
+        "cotton_pct": 2.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 58,
+        "cotton_area_ha": 10399.7,
+        "cotton_pct": 2.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 37,
+        "cotton_area_ha": 6579.4,
+        "cotton_pct": 1.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 60,
+        "cotton_area_ha": 10611.9,
+        "cotton_pct": 2.3,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 56,
+        "cotton_area_ha": 9975.2,
+        "cotton_pct": 2.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 58,
+        "cotton_area_ha": 10293.5,
+        "cotton_pct": 2.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 460888.8,
+        "cotton_fields": 60,
+        "cotton_area_ha": 10718.0,
+        "cotton_pct": 2.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Dadu": {
+    "district_name": "Dadu",
+    "province": "Sindh",
+    "total_agri_area_ha": 439214.1,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 439214.1,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Ghotki": {
+    "district_name": "Ghotki",
+    "province": "Sindh",
+    "total_agri_area_ha": 271825.4,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 60,
+        "cotton_area_ha": 9601.2,
+        "cotton_pct": 3.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 61,
+        "cotton_area_ha": 9889.2,
+        "cotton_pct": 3.6,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 57,
+        "cotton_area_ha": 9217.2,
+        "cotton_pct": 3.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 58,
+        "cotton_area_ha": 9409.2,
+        "cotton_pct": 3.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 37,
+        "cotton_area_ha": 5952.7,
+        "cotton_pct": 2.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 60,
+        "cotton_area_ha": 9601.2,
+        "cotton_pct": 3.5,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 56,
+        "cotton_area_ha": 9025.1,
+        "cotton_pct": 3.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 58,
+        "cotton_area_ha": 9313.2,
+        "cotton_pct": 3.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 271825.4,
+        "cotton_fields": 60,
+        "cotton_area_ha": 9697.2,
+        "cotton_pct": 3.6,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Jacobabad": {
+    "district_name": "Jacobabad",
+    "province": "Sindh",
+    "total_agri_area_ha": 412827.9,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 60,
+        "cotton_area_ha": 28960.0,
+        "cotton_pct": 7.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 61,
+        "cotton_area_ha": 29828.8,
+        "cotton_pct": 7.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 57,
+        "cotton_area_ha": 27801.6,
+        "cotton_pct": 6.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 58,
+        "cotton_area_ha": 28380.8,
+        "cotton_pct": 6.9,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 37,
+        "cotton_area_ha": 17955.2,
+        "cotton_pct": 4.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 60,
+        "cotton_area_ha": 28960.0,
+        "cotton_pct": 7.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 56,
+        "cotton_area_ha": 27222.4,
+        "cotton_pct": 6.6,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 58,
+        "cotton_area_ha": 28091.2,
+        "cotton_pct": 6.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 412827.9,
+        "cotton_fields": 60,
+        "cotton_area_ha": 29249.6,
+        "cotton_pct": 7.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Khairpur": {
+    "district_name": "Khairpur",
+    "province": "Sindh",
+    "total_agri_area_ha": 280133.2,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 280133.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Malir (Karachi)": {
+    "district_name": "Malir (Karachi)",
+    "province": "Sindh",
+    "total_agri_area_ha": 20229.6,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 20229.6,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Naushahro Feroze": {
+    "district_name": "Naushahro Feroze",
+    "province": "Sindh",
+    "total_agri_area_ha": 223850.3,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 4071.5,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 61,
+        "cotton_area_ha": 4193.6,
+        "cotton_pct": 1.9,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 57,
+        "cotton_area_ha": 3908.6,
+        "cotton_pct": 1.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 58,
+        "cotton_area_ha": 3990.1,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 37,
+        "cotton_area_ha": 2524.3,
+        "cotton_pct": 1.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 4071.5,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 56,
+        "cotton_area_ha": 3827.2,
+        "cotton_pct": 1.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 58,
+        "cotton_area_ha": 3949.4,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 223850.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 4112.2,
+        "cotton_pct": 1.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Shaheed Benazirabad": {
+    "district_name": "Shaheed Benazirabad",
+    "province": "Sindh",
+    "total_agri_area_ha": 263193.5,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 60,
+        "cotton_area_ha": 8783.5,
+        "cotton_pct": 3.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 61,
+        "cotton_area_ha": 9047.0,
+        "cotton_pct": 3.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 57,
+        "cotton_area_ha": 8432.2,
+        "cotton_pct": 3.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 58,
+        "cotton_area_ha": 8607.8,
+        "cotton_pct": 3.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 37,
+        "cotton_area_ha": 5445.8,
+        "cotton_pct": 2.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 60,
+        "cotton_area_ha": 8783.5,
+        "cotton_pct": 3.3,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 56,
+        "cotton_area_ha": 8256.5,
+        "cotton_pct": 3.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 58,
+        "cotton_area_ha": 8520.0,
+        "cotton_pct": 3.2,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 263193.5,
+        "cotton_fields": 60,
+        "cotton_area_ha": 8871.3,
+        "cotton_pct": 3.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Sanghar": {
+    "district_name": "Sanghar",
+    "province": "Sindh",
+    "total_agri_area_ha": 392886.2,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 392886.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Shikarpur": {
+    "district_name": "Shikarpur",
+    "province": "Sindh",
+    "total_agri_area_ha": 190116.3,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 9451.1,
+        "cotton_pct": 5.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 61,
+        "cotton_area_ha": 9734.6,
+        "cotton_pct": 5.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 57,
+        "cotton_area_ha": 9073.1,
+        "cotton_pct": 4.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 58,
+        "cotton_area_ha": 9262.1,
+        "cotton_pct": 4.9,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 37,
+        "cotton_area_ha": 5859.7,
+        "cotton_pct": 3.1,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 9451.1,
+        "cotton_pct": 5.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 56,
+        "cotton_area_ha": 8884.0,
+        "cotton_pct": 4.7,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 58,
+        "cotton_area_ha": 9167.6,
+        "cotton_pct": 4.8,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 190116.3,
+        "cotton_fields": 60,
+        "cotton_area_ha": 9545.6,
+        "cotton_pct": 5.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Tharparkar": {
+    "district_name": "Tharparkar",
+    "province": "Sindh",
+    "total_agri_area_ha": 311396.2,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 311396.2,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Thatta": {
+    "district_name": "Thatta",
+    "province": "Sindh",
+    "total_agri_area_ha": 413889.9,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 413889.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Umerkot": {
+    "district_name": "Umerkot",
+    "province": "Sindh",
+    "total_agri_area_ha": 172756.1,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 60,
+        "cotton_area_ha": 4216.4,
+        "cotton_pct": 2.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 61,
+        "cotton_area_ha": 4342.9,
+        "cotton_pct": 2.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 57,
+        "cotton_area_ha": 4047.7,
+        "cotton_pct": 2.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 58,
+        "cotton_area_ha": 4132.1,
+        "cotton_pct": 2.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 37,
+        "cotton_area_ha": 2614.2,
+        "cotton_pct": 1.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 60,
+        "cotton_area_ha": 4216.4,
+        "cotton_pct": 2.4,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "GEE AlphaEarth unsupervised k-means, phenology-verified",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 56,
+        "cotton_area_ha": 3963.4,
+        "cotton_pct": 2.3,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 58,
+        "cotton_area_ha": 4089.9,
+        "cotton_pct": 2.4,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 172756.1,
+        "cotton_fields": 60,
+        "cotton_area_ha": 4258.6,
+        "cotton_pct": 2.5,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Karachi Central": {
+    "district_name": "Karachi Central",
+    "province": "Sindh",
+    "total_agri_area_ha": 1.8,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Karachi East": {
+    "district_name": "Karachi East",
+    "province": "Sindh",
+    "total_agri_area_ha": 713.9,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 713.9,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Karachi South": {
+    "district_name": "Karachi South",
+    "province": "Sindh",
+    "total_agri_area_ha": 1.8,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 1.8,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  },
+  "Karachi West": {
+    "district_name": "Karachi West",
+    "province": "Sindh",
+    "total_agri_area_ha": 5540.7,
+    "measured_year": 2023,
+    "years": [
+      {
+        "year": 2018,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2019,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2020,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2021,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2022,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2023,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "measured",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "No confident cotton cluster identified for this district in 2023 \u2014 reported as zero, not estimated",
+          "yield": "PCCC/PBS 2024-25"
+        }
+      },
+      {
+        "year": 2024,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2025,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      },
+      {
+        "year": 2026,
+        "total_agri_area_ha": 5540.7,
+        "cotton_fields": 0,
+        "cotton_area_ha": 0.0,
+        "cotton_pct": 0.0,
+        "yield_kg_ha": null,
+        "status": "modeled_estimate",
+        "source": {
+          "cropland": "ESA WorldCover v200 (Class 40), live area sum",
+          "cotton": "Modeled trend scaled from 2023 measured data \u2014 not independently classified for this year",
+          "yield": "Modeled trend, not a PCCC/PBS published figure for this year"
+        }
+      }
+    ]
+  }
+}

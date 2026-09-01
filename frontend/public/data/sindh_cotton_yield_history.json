@@ -1,0 +1,27 @@
+{
+  "_comment": "Transcribed from 'Agricultural Statistics of Pakistan 2023-24' (Govt. of Pakistan, Ministry of National Food Security & Research, Economic Wing), Table 14 'Cotton' (Area '000 hectares' and Yield kgs/hectare, Sindh column), pp. 31-32. Source cited in the publication itself as Provincial Crop Reporting Service Centers. Do not extrapolate or estimate rows here -- only years actually printed in the table.",
+  "province": "Sindh",
+  "unit_yield": "kg/ha",
+  "unit_area": "000 ha",
+  "source": "Agricultural Statistics of Pakistan 2023-24, Ministry of National Food Security & Research (Economic Wing) — Provincial Crop Reporting Service Centers",
+  "years": [
+    { "season": "2006-07", "yield_kg_ha": 715.5, "area_000_ha": 570.1 },
+    { "season": "2007-08", "yield_kg_ha": 710.2, "area_000_ha": 607.4 },
+    { "season": "2008-09", "yield_kg_ha": 902.2, "area_000_ha": 561.5 },
+    { "season": "2009-10", "yield_kg_ha": 1144.5, "area_000_ha": 634.7 },
+    { "season": "2010-11", "yield_kg_ha": 1316.4, "area_000_ha": 457.0 },
+    { "season": "2011-12", "yield_kg_ha": 1546.6, "area_000_ha": 259.2 },
+    { "season": "2012-13", "yield_kg_ha": 1091.1, "area_000_ha": 530.1 },
+    { "season": "2013-14", "yield_kg_ha": 1055.1, "area_000_ha": 568.0 },
+    { "season": "2014-15", "yield_kg_ha": 1019.2, "area_000_ha": 596.2 },
+    { "season": "2015-16", "yield_kg_ha": 951.6, "area_000_ha": 621.2 },
+    { "season": "2016-17", "yield_kg_ha": 961.0, "area_000_ha": 636.6 },
+    { "season": "2017-18", "yield_kg_ha": 1049.9, "area_000_ha": 611.7 },
+    { "season": "2018-19", "yield_kg_ha": 1115.1, "area_000_ha": 448.2 },
+    { "season": "2019-20", "yield_kg_ha": 780.0, "area_000_ha": 598.7 },
+    { "season": "2020-21", "yield_kg_ha": 666.9, "area_000_ha": 474.8 },
+    { "season": "2021-22", "yield_kg_ha": 858.7, "area_000_ha": 593.9 },
+    { "season": "2022-23", "yield_kg_ha": 457.5, "area_000_ha": 589.8 },
+    { "season": "2023-24", "yield_kg_ha": 1054.5, "area_000_ha": 625.8 }
+  ]
+}
