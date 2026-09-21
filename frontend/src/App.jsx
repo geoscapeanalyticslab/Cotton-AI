@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useCallback } from 'react';
 import MapView from './components/MapView';
 import Sidebar from './components/Sidebar';
 import ChartsPanel from './components/ChartsPanel';
@@ -11,7 +11,10 @@ import {
   fetchStats,
   fetchYield,
   fetchSindhYieldHistory,
+  setPolygonsRef,
+  clearLiveCaches,
 } from './api';
+import { signIn, signOut, isEEReady } from './ee/auth';
 import './dashboard.css';
 
 const SINDH_CENTER = [26.05, 68.95];
@@ -46,13 +49,20 @@ export default function App() {
   const [sindhHistory, setSindhHistory] = useState(null);
   const [sindhHistoryError, setSindhHistoryError] = useState(null);
 
+  const [eeAuthenticated, setEeAuthenticated] = useState(false);
+  const [eeSigningIn, setEeSigningIn] = useState(false);
+  const [eeError, setEeError] = useState(null);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   useEffect(() => {
-    fetchPolygons().then(setPolygons).catch((e) => setLoadError(e.message));
+    fetchPolygons().then((data) => {
+      setPolygons(data);
+      setPolygonsRef(data);
+    }).catch((e) => setLoadError(e.message));
     fetchDistricts().then(setDistricts).catch(() => {});
     fetchAllDistrictStats().then(setAllDistrictStats).catch(() => {});
     fetchSindhYieldHistory().then(setSindhHistory).catch((e) => setSindhHistoryError(e.message));
@@ -74,6 +84,8 @@ export default function App() {
     return polygons.features.find((f) => f.properties.id === selectedId) || null;
   }, [polygons, selectedId]);
 
+  // Re-fetch stats when EE auth state changes or year/field changes
+  const statsDeps = `${selectedId}_${year}_${eeAuthenticated}`;
   useEffect(() => {
     if (selectedId === null) return;
     let cancelled = false;
@@ -89,11 +101,10 @@ export default function App() {
       .finally(() => {
         if (!cancelled) setStatsLoading(false);
       });
-    return () => {
-      cancelled = true;
-    };
-  }, [selectedId, year]);
+    return () => { cancelled = true; };
+  }, [statsDeps]);
 
+  const yieldDeps = `${selectedId}_${year}_${eeAuthenticated}`;
   useEffect(() => {
     if (selectedId === null) return;
     let cancelled = false;
@@ -109,10 +120,28 @@ export default function App() {
       .finally(() => {
         if (!cancelled) setYieldLoading(false);
       });
-    return () => {
-      cancelled = true;
-    };
-  }, [selectedId, year]);
+    return () => { cancelled = true; };
+  }, [yieldDeps]);
+
+  const handleSignIn = useCallback(async () => {
+    setEeSigningIn(true);
+    setEeError(null);
+    try {
+      await signIn();
+      setEeAuthenticated(true);
+      clearLiveCaches();
+    } catch (err) {
+      setEeError(err.message);
+    } finally {
+      setEeSigningIn(false);
+    }
+  }, []);
+
+  const handleSignOut = useCallback(() => {
+    signOut();
+    setEeAuthenticated(false);
+    clearLiveCaches();
+  }, []);
 
   return (
     <div className="app-shell">
@@ -131,6 +160,25 @@ export default function App() {
         <div className="app-header-actions">
           {districts && <span className="field-count">{districts.features.length} Districts</span>}
           {polygons && <span className="field-count">{polygons.features.length} Mapped Fields</span>}
+
+          {/* EE Auth Button */}
+          {eeAuthenticated ? (
+            <span className="ee-auth-status ee-authenticated">
+              <span className="ee-auth-dot" /> EE Connected
+              <button type="button" className="ee-signout-btn" onClick={handleSignOut}>Sign out</button>
+            </span>
+          ) : (
+            <button
+              type="button"
+              className="ee-signin-btn"
+              onClick={handleSignIn}
+              disabled={eeSigningIn}
+            >
+              {eeSigningIn ? 'Connecting...' : 'Sign in with Google (GEE)'}
+            </button>
+          )}
+          {eeError && <span className="ee-auth-error">{eeError}</span>}
+
           <button
             type="button"
             className="theme-toggle"
@@ -142,7 +190,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Full-Height Layout (Original Map Dimensions Restored) */}
+      {/* Main Full-Height Layout */}
       <main className="app-main">
         <YieldPanel
           selected={selectedFeature ? selectedFeature.properties : null}
@@ -187,10 +235,10 @@ export default function App() {
           error={statsError}
           year={year}
           onYearChange={setYear}
+          eeAuthenticated={eeAuthenticated}
         />
       </main>
 
-      {/* Granular Field Monthly Climate Charts */}
       <ChartsPanel
         selected={selectedFeature ? selectedFeature.properties : null}
         stats={stats}

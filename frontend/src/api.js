@@ -1,40 +1,71 @@
-// api.js — hybrid mode: try backend /api/* first, fall back to bundled static files
+// api.js — hybrid mode: live EE queries → backend → precomputed static files
+import { isEEReady } from './ee/auth';
+import { computeStats } from './ee/climate';
+import { computeNdviForAllFields, percentileRank } from './ee/ndvi';
+
 const API_BASE = '/api';
 const STATIC_PREFIX = '/Cotton-AI/data/';
 
 async function apiCall(path) {
-  const res = await fetch(API_BASE + path);
-  if (res.ok) return res.json();
+  try {
+    const res = await fetch(API_BASE + path);
+    if (res.ok) return res.json();
+  } catch {}
   return null;
 }
 
-/** Load a static JSON/GeoJSON file from the deployed /Cotton-AI/data/ path. */
 async function loadStatic(name) {
   const res = await fetch(STATIC_PREFIX + name);
   if (!res.ok) throw new Error(`Failed to load static file: ${name}`);
   return res.json();
 }
 
-// ── CACHED static data ──────────────────────────────────────────────────
+// ── Per-year EE live caches (cleared on sign-out) ───────────────────────
+const _liveStatsCache = {};   // { [`${fid}_${year}`]: stats }
+const _liveNdviCache = {};    // { [year]: { values, inProgress, window } }
+
+let _polygonsRef = null;
+
+export function setPolygonsRef(polygons) {
+  _polygonsRef = polygons;
+}
+
+export function clearLiveCaches() {
+  Object.keys(_liveStatsCache).forEach((k) => delete _liveStatsCache[k]);
+  Object.keys(_liveNdviCache).forEach((k) => delete _liveNdviCache[k]);
+}
+
+// ── Precomputed static data (fallback) ─────────────────────────────────
+const _fieldStatsCache = {};
+const _fieldNdviCache = {};
+
+async function loadFieldStats(year) {
+  if (_fieldStatsCache[year]) return _fieldStatsCache[year];
+  try {
+    const data = await loadStatic(`field_stats_${year}.json`);
+    _fieldStatsCache[year] = data;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+async function loadFieldNdvi(year) {
+  if (_fieldNdviCache[year]) return _fieldNdviCache[year];
+  try {
+    const data = await loadStatic(`field_ndvi_${year}.json`);
+    _fieldNdviCache[year] = data;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+// ── Cached static data ─────────────────────────────────────────────────
 let _polygonsCache = null;
 let _districtsCache = null;
 let _allStatsCache = null;
 let _yieldHistoryCache = null;
-let _districtYieldCache = null;
-
-async function getCached(key, loader) {
-  const cache = {
-    polygons: '_polygonsCache',
-    districts: '_districtsCache',
-    allStats: '_allStatsCache',
-    yieldHistory: '_yieldHistoryCache',
-    districtYield: '_districtYieldCache',
-  }[key];
-  if (cache in globalThis) return globalThis[cache];
-  const val = await loader();
-  globalThis[cache] = val;
-  return val;
-}
 
 // ── API functions ───────────────────────────────────────────────────────
 export async function fetchPolygons() {
@@ -62,7 +93,6 @@ export async function fetchAllDistrictStats() {
 export async function fetchDistrictStats(districtName) {
   const data = await apiCall(`/district/${encodeURIComponent(districtName)}/stats`);
   if (data) return data;
-  // fallback: case-insensitive lookup in bundled data
   const allStats = await fetchAllDistrictStats();
   if (!allStats) return null;
   for (const [name, stats] of Object.entries(allStats)) {
@@ -72,45 +102,132 @@ export async function fetchDistrictStats(districtName) {
 }
 
 /**
- * Climate stats are computed live by GEE via the Python backend.
- * If no backend is reachable, return a graceful no_data marker
- * so the UI shows an informative message instead of crashing.
+ * Climate stats: live EE → backend → precomputed.
  */
 export async function fetchStats(fid, year) {
+  // 1. Live EE query if authenticated
+  if (isEEReady() && _polygonsRef) {
+    const cacheKey = `${fid}_${year}`;
+    if (_liveStatsCache[cacheKey]) return _liveStatsCache[cacheKey];
+
+    const feature = _polygonsRef.features.find((f) => f.properties.id === fid);
+    if (feature) {
+      try {
+        const stats = await computeStats(feature.geometry, year);
+        _liveStatsCache[cacheKey] = stats;
+        return stats;
+      } catch (err) {
+        console.warn('Live EE stats query failed, falling back:', err);
+      }
+    }
+  }
+
+  // 2. Backend
   const data = await apiCall(`/stats/${fid}?year=${year}`);
   if (data) return data;
-  return { no_data: true, source: 'GEE backend not reachable' };
+
+  // 3. Precomputed static
+  const fieldStats = await loadFieldStats(year);
+  if (fieldStats && fieldStats[String(fid)]) {
+    return fieldStats[String(fid)];
+  }
+  return { no_data: true, source: 'No data available for this field/year' };
 }
 
 /**
- * Yield combines district-level published yield + field-level NDVI from GEE.
- * Falls back to bundled district_yield reference when backend is unavailable.
+ * Yield: live EE NDVI → backend → precomputed.
  */
 export async function fetchYield(fid, year) {
+  // 1. Live EE NDVI if authenticated
+  if (isEEReady() && _polygonsRef) {
+    if (!_liveNdviCache[year]) {
+      try {
+        const result = await computeNdviForAllFields(_polygonsRef, year);
+        _liveNdviCache[year] = {
+          values: result.values,
+          inProgress: result.inProgress,
+          window: result.windowStart
+            ? `${result.windowStart} to ${result.windowEnd}`
+            : null,
+        };
+      } catch (err) {
+        console.warn('Live EE NDVI query failed, falling back:', err);
+        _liveNdviCache[year] = { values: {}, inProgress: false, window: null };
+      }
+    }
+
+    const liveNdvi = _liveNdviCache[year];
+    const ndviVal = liveNdvi.values[String(fid)] ?? liveNdvi.values[fid] ?? null;
+    const allVals = Object.values(liveNdvi.values).filter((v) => v != null);
+    const percentile = ndviVal != null && allVals.length
+      ? percentileRank(ndviVal, allVals)
+      : null;
+
+    const yieldData = await loadStatic('district_yield.json');
+    const districts = yieldData.districts || {};
+    let fallbackValue = null;
+    for (const [, dData] of Object.entries(districts)) {
+      if (dData.value != null) { fallbackValue = dData.value; break; }
+    }
+
+    return {
+      year,
+      district_yield: {
+        season: yieldData.season ?? '\u2014',
+        value: fallbackValue,
+        unit: yieldData.unit ?? 'kg/ha',
+        source: `PCCC/PBS ${yieldData.season ?? ''}`.trim(),
+      },
+      ndvi_estimate: {
+        ndvi: ndviVal,
+        percentile,
+        window: liveNdvi.window,
+        in_progress: liveNdvi.inProgress,
+        status: ndviVal != null ? 'ok' : (liveNdvi.window ? 'ok' : 'not_started'),
+        source: 'Sentinel-2 (live EE)',
+      },
+    };
+  }
+
+  // 2. Backend
   const data = await apiCall(`/yield/${fid}?year=${year}`);
   if (data) return data;
 
-  // Build a graceful fallback from bundled district_yield data
+  // 3. Precomputed static
+  const fieldNdvi = await loadFieldNdvi(year);
+  const ndviValues = fieldNdvi?.values || {};
+  const staticNdviVal = ndviValues[String(fid)] ?? ndviValues[fid] ?? null;
+
+  let percentile = null;
+  if (staticNdviVal !== null) {
+    const allVals = Object.values(ndviValues).filter((v) => v !== null);
+    if (allVals.length > 0) {
+      percentile = (100.0 * allVals.filter((v) => v <= staticNdviVal).length) / allVals.length;
+    }
+  }
+
   const yieldData = await loadStatic('district_yield.json');
   const districts = yieldData.districts || {};
   let fallbackValue = null;
-  for (const [dName, dData] of Object.entries(districts)) {
+  for (const [, dData] of Object.entries(districts)) {
     if (dData.value !== null) { fallbackValue = dData.value; break; }
   }
+
   return {
     year,
     district_yield: {
-      season: yieldData.season ?? '—',
+      season: yieldData.season ?? '\u2014',
       value: fallbackValue,
       unit: yieldData.unit ?? 'kg/ha',
+      source: `PCCC/PBS ${yieldData.season ?? ''}`.trim(),
     },
     ndvi_estimate: {
-      status: 'not_available',
-      ndvi: null,
-      percentile: null,
-      window: null,
-      in_progress: false,
-      source: 'GEE backend not reachable',
+      ndvi: staticNdviVal,
+      percentile,
+      window: fieldNdvi?.window ?? null,
+      in_progress: fieldNdvi?.in_progress ?? false,
+      status: staticNdviVal !== null ? 'ok' : (fieldNdvi?.window ? 'ok' : 'not_started'),
+      source: 'Sentinel-2 (precomputed)',
     },
   };
 }
