@@ -1,179 +1,217 @@
 /**
- * Earth Engine authentication via Google Identity Services + Cloudflare Worker.
+ * Earth Engine authentication for the browser.
  *
  * Flow:
- *  1. User clicks "Sign in with Google"
- *  2. Google shows consent screen (user must have GEE access)
- *  3. We get an auth code
- *  4. Auth code → Cloudflare Worker → access token with EE scopes
- *  5. access_token → ee.Initialize()
+ *  1. User clicks "Sign in with Google (GEE)"
+ *  2. Google Identity Services (token model) shows the consent screen and
+ *     returns an OAuth access token that carries the Earth Engine scope
+ *  3. The token is handed to the Earth Engine JS API
+ *  4. All climate / NDVI queries then run in the user's browser, against the
+ *     user's own Earth Engine account and quota
+ *
+ * No backend or client secret is required: the OAuth client is a public
+ * "Web application" client, and the token is issued straight to the page.
+ *
+ * Required config (frontend/.env):
+ *   VITE_GOOGLE_CLIENT_ID  OAuth 2.0 Web client ID
+ *   VITE_EE_PROJECT        Earth Engine / Google Cloud project ID
  */
-import { ref, onMounted } from 'react';
 
 // ── CONFIG ──────────────────────────────────────────────────────────────
-// Set these in your .env or Vite config:
-//   VITE_GOOGLE_CLIENT_ID   — OAuth 2.0 Client ID from GCP Console
-//   VITE_EE_AUTH_WORKER     — URL of the deployed Cloudflare Worker
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
-const EE_AUTH_WORKER = import.meta.env.VITE_EE_AUTH_WORKER || '';
+const EE_PROJECT = import.meta.env.VITE_EE_PROJECT || 'ee-cotton-ai';
+
+/** Earth Engine read-only scope — enough for every query this app runs. */
+const EE_SCOPE = 'https://www.googleapis.com/auth/earthengine.readonly';
+
+/** Official browser build of the Earth Engine JS API. */
+const EE_LIB_URL =
+  'https://cdn.jsdelivr.net/npm/@google/earthengine@1.7.51/build/browser.js';
+
+const GIS_URL = 'https://accounts.google.com/gsi/client';
 
 let _eeReady = false;
-let _eeInitPromise = null;
+let _accessToken = null;
+let _tokenExpiresAt = 0;
+let _eeLibPromise = null;
+let _gisPromise = null;
 
-/**
- * Load the Google Identity Services script dynamically.
- */
-function loadGIS() {
+// ── Script loading ──────────────────────────────────────────────────────
+function loadScript(src) {
   return new Promise((resolve, reject) => {
-    if (window.google?.accounts?.id) {
-      resolve(window.google.accounts.id);
+    const existing = document.querySelector(`script[src="${src}"]`);
+    if (existing) {
+      if (existing.dataset.loaded === 'true') return resolve();
+      existing.addEventListener('load', () => resolve(), { once: true });
+      existing.addEventListener('error', () => reject(new Error(`Failed to load ${src}`)), { once: true });
       return;
     }
     const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
+    script.src = src;
     script.async = true;
-    script.onload = () => resolve(window.google.accounts.id);
-    script.onerror = () => reject(new Error('Failed to load Google Identity Services'));
+    script.onload = () => {
+      script.dataset.loaded = 'true';
+      resolve();
+    };
+    script.onerror = () => reject(new Error(`Failed to load ${src}`));
     document.head.appendChild(script);
   });
 }
 
-/**
- * Exchange an auth code for an access token via the Cloudflare Worker.
- */
-async function exchangeCodeForToken(code, redirectUri) {
-  const res = await fetch(EE_AUTH_WORKER, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ code, redirect_uri: redirectUri }),
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || `Token exchange failed (${res.status})`);
+function loadGIS() {
+  if (!_gisPromise) {
+    _gisPromise = loadScript(GIS_URL).then(() => {
+      if (!window.google?.accounts?.oauth2) {
+        throw new Error('Google Identity Services did not initialise');
+      }
+      return window.google.accounts.oauth2;
+    });
+    _gisPromise.catch(() => {
+      _gisPromise = null;
+    });
   }
-  return res.json();
+  return _gisPromise;
+}
+
+function loadEE() {
+  if (!_eeLibPromise) {
+    _eeLibPromise = loadScript(EE_LIB_URL).then(async () => {
+      // The bundle assigns window.ee during evaluation; give it a moment.
+      for (let i = 0; i < 40 && !window.ee; i += 1) {
+        await new Promise((r) => setTimeout(r, 50));
+      }
+      if (!window.ee) throw new Error('Earth Engine JS library failed to load');
+      return window.ee;
+    });
+    _eeLibPromise.catch(() => {
+      _eeLibPromise = null;
+    });
+  }
+  return _eeLibPromise;
 }
 
 /**
- * Initialize the Earth Engine JS library with an access token.
- * The ee library must be loaded via <script> tag before calling this.
+ * Warm up the Google + Earth Engine scripts (call this when the page mounts
+ * so the sign-in popup opens immediately on click).
  */
-async function initEE(accessToken) {
-  if (_eeReady) return;
+export function preloadEarthEngine() {
+  loadGIS().catch(() => {});
+  loadEE().catch(() => {});
+}
 
-  // Wait for the ee library to be available
-  if (typeof window.ee === 'undefined') {
-    throw new Error(
-      'Earth Engine JS library not loaded. Add <script src="https://unpkg.com/earthengine-api@0.1.370/build/ee_api.min.js"> to index.html'
+// ── Earth Engine initialisation ─────────────────────────────────────────
+function initEE(ee, token, expiresIn) {
+  return new Promise((resolve, reject) => {
+    // setAuthToken(clientId, tokenType, accessToken, expiresIn, extraScopes,
+    //              callback, updateAuthLibrary)
+    ee.data.setAuthToken(
+      null,
+      'Bearer',
+      token,
+      expiresIn || 3600,
+      [EE_SCOPE],
+      () => {
+        ee.initialize(
+          null, // default API base URL
+          null, // default tile base URL
+          () => {
+            _eeReady = true;
+            resolve();
+          },
+          (err) => reject(new Error(`Earth Engine init failed: ${err?.message || err}`)),
+          null, // no xsrf token
+          EE_PROJECT
+        );
+      },
+      false // don't load the legacy gapi auth library
     );
-  }
-
-  return new Promise((resolve, reject) => {
-    window.ee.initialize(accessToken, undefined, () => {
-      _eeReady = true;
-      resolve();
-    }, (err) => {
-      reject(new Error(`EE init failed: ${err}`));
-    });
   });
 }
 
+// ── Public API ──────────────────────────────────────────────────────────
 /**
- * Full sign-in flow: Google consent → token exchange → EE init.
- * Returns the access token.
- */
-export async function signInWithGoogle() {
-  const gis = await loadGIS();
-
-  return new Promise((resolve, reject) => {
-    // Use the redirect flow (code response type) for server-side exchange
-    const client = gis.init({
-      client_id: GOOGLE_CLIENT_ID,
-      scope: 'openid email profile',
-      ux_mode: 'redirect',
-      redirect_uri: window.location.origin + window.location.pathname,
-      state: 'ee_auth',
-    });
-
-    // Alternative: use popup + implicit flow (simpler, no redirect)
-    // For popup flow, we'd use response_type=token and get the access token directly.
-    // But EE scopes require server-side exchange. Let's use the code flow.
-
-    // Actually, let's use the simpler popup + token approach.
-    // Google Identity Services can return an ID token directly.
-    // For EE, we need an ACCESS token, not an ID token.
-    // The code flow is the correct approach.
-
-    // Trigger the sign-in prompt
-    gis.prompt();
-  });
-}
-
-/**
- * Simpler approach: use GIS in popup mode, get auth code, exchange via worker.
+ * Sign in with Google, request the Earth Engine scope, and initialise EE.
+ * Resolves with `{ access_token, expires_in }`.
  */
 export async function signIn() {
   if (!GOOGLE_CLIENT_ID) {
-    throw new Error('VITE_GOOGLE_CLIENT_ID not set');
-  }
-  if (!EE_AUTH_WORKER) {
-    throw new Error('VITE_EE_AUTH_WORKER not set');
+    throw new Error('VITE_GOOGLE_CLIENT_ID is not configured');
   }
 
-  const gis = await loadGIS();
+  const oauth2 = await loadGIS();
+  const ee = await loadEE();
 
   return new Promise((resolve, reject) => {
-    // Initialize with callback
-    gis.initialize(GOOGLE_CLIENT_ID, {
+    let settled = false;
+    const fail = (err) => {
+      if (!settled) {
+        settled = true;
+        reject(err instanceof Error ? err : new Error(String(err)));
+      }
+    };
+
+    const client = oauth2.initTokenClient({
+      client_id: GOOGLE_CLIENT_ID,
+      scope: `email ${EE_SCOPE}`,
+      ux_mode: 'popup',
       callback: async (response) => {
-        if (!response.code) {
-          reject(new Error('No auth code received'));
+        if (settled) return;
+        if (response.error) {
+          fail(new Error(response.error_description || response.error));
+          return;
+        }
+        if (!response.access_token) {
+          fail(new Error('Google did not return an access token'));
           return;
         }
         try {
-          const redirectUri = window.location.origin + window.location.pathname;
-          const tokenData = await exchangeCodeForToken(response.code, redirectUri);
-          await initEE(tokenData.access_token);
-          resolve(tokenData.access_token);
+          await initEE(ee, response.access_token, Number(response.expires_in));
+          _accessToken = response.access_token;
+          _tokenExpiresAt = Date.now() + Number(response.expires_in || 3600) * 1000;
+          settled = true;
+          resolve({ access_token: response.access_token, expires_in: response.expires_in });
         } catch (err) {
-          reject(err);
+          fail(err);
         }
       },
       error_callback: (err) => {
-        reject(new Error(err.message || 'Google Sign-In failed'));
+        fail(new Error(err?.message || 'Google Sign-In was cancelled'));
       },
-      scope: 'openid email profile',
-      ux_mode: 'popup',
     });
 
-    // Show the Google One Tap prompt
-    gis.prompt();
+    try {
+      client.requestAccessToken({ prompt: '' });
+    } catch (err) {
+      fail(err);
+    }
   });
 }
 
-/**
- * Check if EE is initialized and ready.
- */
+/** True once the EE JS API has been initialised with a user token. */
 export function isEEReady() {
-  return _eeReady;
+  return _eeReady && Date.now() < _tokenExpiresAt;
 }
 
-/**
- * Get the ee object (throws if not initialized).
- */
+/** The `ee` object, or an error if the user has not signed in. */
 export function getEE() {
   if (!_eeReady || typeof window.ee === 'undefined') {
-    throw new Error('Earth Engine not initialized. Sign in first.');
+    throw new Error('Earth Engine not initialised — sign in with Google first.');
   }
   return window.ee;
 }
 
-/**
- * Sign out — clear the EE session.
- */
+/** Revoke the access token and drop the Earth Engine session. */
 export function signOut() {
+  const token = _accessToken;
+  _accessToken = null;
+  _tokenExpiresAt = 0;
   _eeReady = false;
-  if (window.google?.accounts?.id) {
-    window.google.accounts.id.disableAutoSelect();
+
+  if (token && window.google?.accounts?.oauth2) {
+    try {
+      window.google.accounts.oauth2.revoke(token, () => {});
+    } catch {
+      /* revoke is best-effort */
+    }
   }
 }

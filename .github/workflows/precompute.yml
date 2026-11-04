@@ -1,9 +1,8 @@
 name: Precompute EE Field Data
 
 on:
-  schedule:
-    # Run monthly on the 1st at 02:00 UTC
-    - cron: '0 2 1 * *'
+  # Manual only: the live dashboard queries Earth Engine in the browser, so
+  # this precompute job is just a fallback snapshot generator.
   workflow_dispatch:
     inputs:
       years:

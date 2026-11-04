@@ -1,22 +1,25 @@
 name: Build and Deploy to GitHub Pages
 
+# Builds the Vite app and commits the result into docs/, which is what
+# GitHub Pages serves (Settings → Pages → Deploy from a branch → main /docs).
+#
+# This deliberately avoids actions/upload-pages-artifact so the deploy does
+# not depend on the Actions artifact storage quota.
+
 on:
   push:
     branches: [main]
     paths:
       - 'frontend/**'
-      - 'docs/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: build-docs
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -39,25 +42,23 @@ jobs:
         run: npm run build
         env:
           VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
-          VITE_EE_AUTH_WORKER: ${{ secrets.VITE_EE_AUTH_WORKER }}
+          VITE_EE_PROJECT: ${{ secrets.VITE_EE_PROJECT }}
 
-      - name: Copy built assets to docs
+      - name: Copy build into docs/
         run: |
-          cp -r frontend/dist/assets docs/assets
+          rm -rf docs/assets
+          mkdir -p docs/assets
+          cp -r frontend/dist/assets/. docs/assets/
           cp frontend/dist/index.html docs/index.html
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit updated site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "Site is already up to date"
+          else
+            git commit -m "chore: rebuild site [skip ci]"
+            git push
+          fi

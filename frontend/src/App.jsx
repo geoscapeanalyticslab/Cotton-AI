@@ -14,7 +14,7 @@ import {
   setPolygonsRef,
   clearLiveCaches,
 } from './api';
-import { signIn, signOut, isEEReady } from './ee/auth';
+import { signIn, signOut, preloadEarthEngine } from './ee/auth';
 import './dashboard.css';
 
 const SINDH_CENTER = [26.05, 68.95];
@@ -57,6 +57,12 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    // Fetch the Google + Earth Engine scripts in the background so the
+    // sign-in popup opens instantly when the user clicks the button.
+    preloadEarthEngine();
+  }, []);
 
   useEffect(() => {
     fetchPolygons().then((data) => {

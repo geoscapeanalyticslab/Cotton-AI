@@ -1,54 +1,42 @@
-# Earth Engine OAuth Token Exchange Worker
+# Earth Engine OAuth worker (optional)
 
-This Cloudflare Worker handles the OAuth code → token exchange for Earth Engine access.
+**You do not need this worker.** The dashboard authenticates with Google
+Identity Services in the browser (token flow) and talks to Earth Engine
+directly, so no client secret and no server-side code are involved. See
+`frontend/src/ee/auth.js`.
 
-## Why is this needed?
-
-Google Sign-In can't directly request Earth Engine scopes in the browser.
-This worker takes the auth code from Google Sign-In and exchanges it for an
-access token with the `earthengine.readonly` scope.
+This worker is only for deployments that must use the authorization-code
+flow. It swaps a Google auth code for an access token while keeping the
+client secret server-side.
 
 ## Setup
 
 1. **Create a Cloudflare account** (free): https://dash.cloudflare.com/sign-up
-
 2. **Install Wrangler CLI**:
    ```bash
    npm install -g wrangler
-   ```
-
-3. **Authenticate**:
-   ```bash
    wrangler login
    ```
-
-4. **Set secrets** (never put these in code):
-   ```bash
-   wrangler secret put CLIENT_ID
-   # Paste your Google OAuth 2.0 Client ID
-
-   wrangler secret put CLIENT_SECRET
-   # Paste your Google OAuth 2.0 Client Secret
-   ```
-
-5. **Deploy**:
+3. **Set secrets** (never put these in code):
    ```bash
    cd worker
+   wrangler secret put CLIENT_ID      # Google OAuth 2.0 client ID
+   wrangler secret put CLIENT_SECRET  # Google OAuth 2.0 client secret
+   ```
+4. **Deploy**:
+   ```bash
    wrangler deploy
    ```
+5. Note the URL, e.g.
+   `https://cotton-ai-ee-auth.YOUR_SUBDOMAIN.workers.dev`.
 
-6. **Note the URL** — it'll be something like:
-   `https://cotton-ai-ee-auth.YOUR_SUBDOMAIN.workers.dev`
+## Restricting origins
 
-7. **Set it in your frontend .env**:
-   ```
-   VITE_EE_AUTH_WORKER=https://cotton-ai-ee-auth.YOUR_SUBDOMAIN.workers.dev
-   ```
+Only browser origins listed in `ALLOWED_ORIGINS` may call the worker. The
+defaults are `https://geoscapeanalyticslab.github.io` and the local Vite dev
+server. Override with a Wrangler var if you fork this repo:
 
-## Google Cloud Console Setup
-
-1. Go to https://console.cloud.google.com/apis/credentials
-2. Create an OAuth 2.0 Client ID (Web application)
-3. Add your GitHub Pages domain as an Authorized JavaScript origin
-4. Add your Worker URL as an Authorized redirect URI
-5. Enable the Earth Engine API in your GCP project
+```toml
+[vars]
+ALLOWED_ORIGINS = "https://your-site.example,http://localhost:5173"
+```
