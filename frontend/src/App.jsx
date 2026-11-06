@@ -263,6 +263,24 @@ export default function App() {
         loading={statsLoading}
         error={statsError}
       />
+
+      <footer className="app-footer">
+        <span>
+          &copy; {new Date().getFullYear()} Geoscape Analytics Lab &middot; Data:
+          Google Earth Engine (ERA5-Land, CHIRPS, Sentinel-2)
+        </span>
+        <nav className="app-footer-links">
+          <a href={`${import.meta.env.BASE_URL}privacy.html`}>Privacy Policy</a>
+          <a href={`${import.meta.env.BASE_URL}terms.html`}>Terms of Service</a>
+          <a
+            href="https://github.com/geoscapeanalyticslab/Cotton-AI"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Source
+          </a>
+        </nav>
+      </footer>
     </div>
   );
 }

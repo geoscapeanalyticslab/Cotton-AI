@@ -49,7 +49,7 @@ jobs:
           rm -rf docs/assets
           mkdir -p docs/assets
           cp -r frontend/dist/assets/. docs/assets/
-          cp frontend/dist/index.html docs/index.html
+          cp frontend/dist/*.html docs/
 
       - name: Commit updated site
         run: |
