@@ -26,7 +26,7 @@ const EE_SCOPE = 'https://www.googleapis.com/auth/earthengine.readonly';
 
 /** Official browser build of the Earth Engine JS API. */
 const EE_LIB_URL =
-  'https://cdn.jsdelivr.net/npm/@google/earthengine@1.7.51/build/browser.js';
+  'https://cdn.jsdelivr.net/npm/@google/earthengine@1.7.51/build/ee_api_js.js';
 
 const GIS_URL = 'https://accounts.google.com/gsi/client';
 

@@ -3,10 +3,17 @@ import { isEEReady } from './ee/auth';
 import { computeStats } from './ee/climate';
 import { computeNdviForAllFields, percentileRank } from './ee/ndvi';
 
-const API_BASE = '/api';
-const STATIC_PREFIX = '/Cotton-AI/data/';
+// The Flask backend only exists when the app is served locally. On a static
+// host (GitHub Pages) skip the /api probes entirely and go straight to the
+// bundled JSON files.
+const IS_STATIC_HOST =
+  typeof window !== 'undefined' && /\.github\.io$/i.test(window.location.hostname);
+
+const API_BASE = IS_STATIC_HOST ? null : '/api';
+const STATIC_PREFIX = `${import.meta.env.BASE_URL}data/`;
 
 async function apiCall(path) {
+  if (!API_BASE) return null;
   try {
     const res = await fetch(API_BASE + path);
     if (res.ok) return res.json();
