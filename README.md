@@ -93,6 +93,23 @@ npm run dev          # http://localhost:5173
 npm run build        # writes frontend/dist
 ```
 
+`npm run dev` / `npm run build` first copy `docs/data/` into
+`frontend/public/data/` (`frontend/scripts/sync-data.mjs`). That directory is
+generated and git-ignored — edit the files under `docs/data/` instead.
+
+### Data layout
+
+| File | Purpose |
+|---|---|
+| `docs/data/sindh_districts.geojson` | 21 district boundaries (simplified, ~0.9 MB) |
+| `docs/data/fields/<district>.geojson` | 60 cotton-field polygons per district, loaded only when that district is selected |
+| `docs/data/field_points.json` | 600 field centroids used for the live NDVI percentile |
+| `docs/data/sindh_district_stats.json` | Per-district cropland/cotton area and yield history |
+| `docs/data/sindh_cotton_yield_history.json` | Province-level cotton yield trend |
+
+Field geometry is deliberately split per district: loading the whole province
+at once was ~19 MB of GeoJSON and made the page unresponsive on first paint.
+
 ## Deployment
 
 `.github/workflows/deploy.yml` builds the frontend and commits the output into
