@@ -33,6 +33,25 @@ const _liveNdviCache = {};    // { [year]: { values, inProgress, window } }
 
 let _polygonsRef = null;
 
+// ── Live-query error reporting ──────────────────────────────────────────
+// A failed Earth Engine call falls back to precomputed data, but the user
+// should still see why (wrong project, no EE access, expired token, …).
+let _onLiveError = null;
+
+export function setLiveErrorHandler(handler) {
+  _onLiveError = handler;
+}
+
+function reportLiveError(context, err) {
+  const message = err?.message || String(err);
+  console.warn(`[Earth Engine] ${context}:`, err);
+  if (_onLiveError) _onLiveError(`${context}: ${message}`);
+}
+
+function clearLiveError() {
+  if (_onLiveError) _onLiveError(null);
+}
+
 export function setPolygonsRef(polygons) {
   _polygonsRef = polygons;
 }
@@ -122,9 +141,10 @@ export async function fetchStats(fid, year) {
       try {
         const stats = await computeStats(feature.geometry, year);
         _liveStatsCache[cacheKey] = stats;
+        clearLiveError();
         return stats;
       } catch (err) {
-        console.warn('Live EE stats query failed, falling back:', err);
+        reportLiveError('Earth Engine climate query failed', err);
       }
     }
   }
@@ -158,7 +178,7 @@ export async function fetchYield(fid, year) {
             : null,
         };
       } catch (err) {
-        console.warn('Live EE NDVI query failed, falling back:', err);
+        reportLiveError('Earth Engine NDVI query failed', err);
         _liveNdviCache[year] = { values: {}, inProgress: false, window: null };
       }
     }

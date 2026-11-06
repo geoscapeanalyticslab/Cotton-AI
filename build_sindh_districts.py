@@ -34,7 +34,7 @@ from yield_data import get_district_yield
 
 load_dotenv()
 try:
-    ee.Initialize(project=os.environ.get("EE_PROJECT", "ee-cotton-ai"))
+    ee.Initialize(project=os.environ.get("EE_PROJECT", "1014576056812"))
 except Exception as e:
     print("GEE Init note:", e)
 

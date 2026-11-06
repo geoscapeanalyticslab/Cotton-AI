@@ -20,7 +20,7 @@ import numpy as np
 from dotenv import load_dotenv
 
 load_dotenv()
-ee.Initialize(project=os.environ.get("EE_PROJECT", "ee-cotton-ai"))
+ee.Initialize(project=os.environ.get("EE_PROJECT", "1014576056812"))
 
 CONFIG = {
     "YEAR": 2023,

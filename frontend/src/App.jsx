@@ -13,6 +13,7 @@ import {
   fetchSindhYieldHistory,
   setPolygonsRef,
   clearLiveCaches,
+  setLiveErrorHandler,
 } from './api';
 import { signIn, signOut, preloadEarthEngine } from './ee/auth';
 import './dashboard.css';
@@ -52,6 +53,7 @@ export default function App() {
   const [eeAuthenticated, setEeAuthenticated] = useState(false);
   const [eeSigningIn, setEeSigningIn] = useState(false);
   const [eeError, setEeError] = useState(null);
+  const [eeLiveError, setEeLiveError] = useState(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -62,6 +64,11 @@ export default function App() {
     // Fetch the Google + Earth Engine scripts in the background so the
     // sign-in popup opens instantly when the user clicks the button.
     preloadEarthEngine();
+  }, []);
+
+  useEffect(() => {
+    setLiveErrorHandler(setEeLiveError);
+    return () => setLiveErrorHandler(null);
   }, []);
 
   useEffect(() => {
@@ -132,6 +139,7 @@ export default function App() {
   const handleSignIn = useCallback(async () => {
     setEeSigningIn(true);
     setEeError(null);
+    setEeLiveError(null);
     try {
       await signIn();
       setEeAuthenticated(true);
@@ -146,6 +154,7 @@ export default function App() {
   const handleSignOut = useCallback(() => {
     signOut();
     setEeAuthenticated(false);
+    setEeLiveError(null);
     clearLiveCaches();
   }, []);
 
@@ -184,6 +193,9 @@ export default function App() {
             </button>
           )}
           {eeError && <span className="ee-auth-error">{eeError}</span>}
+          {eeLiveError && (
+            <span className="ee-auth-error" title={eeLiveError}>{eeLiveError}</span>
+          )}
 
           <button
             type="button"

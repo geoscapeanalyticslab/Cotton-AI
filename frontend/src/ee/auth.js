@@ -19,7 +19,9 @@
 
 // ── CONFIG ──────────────────────────────────────────────────────────────
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
-const EE_PROJECT = import.meta.env.VITE_EE_PROJECT || 'ee-cotton-ai';
+// Earth Engine accepts a project *number* as well as a project ID. The number
+// below is the Google Cloud project that owns the OAuth client.
+const EE_PROJECT = import.meta.env.VITE_EE_PROJECT || '1014576056812';
 
 /** Earth Engine read-only scope — enough for every query this app runs. */
 const EE_SCOPE = 'https://www.googleapis.com/auth/earthengine.readonly';
