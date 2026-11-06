@@ -35,7 +35,9 @@ const _liveNdviCache = {};    // { [year]: { values, inProgress, window } }
 // the full 19 MB national collection. `_fieldById` lets the stats/yield path
 // find the geometry for whichever field the user has selected.
 const _fieldsCache = {};          // { [districtSlug]: FeatureCollection }
+const _fieldsOrder = [];          // LRU order of loaded districts
 const _fieldById = new Map();     // field id → Feature
+const MAX_CACHED_DISTRICTS = 3;
 
 // 600 centroids (40 KB) — enough for a live NDVI percentile across every
 // mapped field without shipping or querying the full polygons.
@@ -130,7 +132,14 @@ export async function fetchFields(districtName) {
   if (!districtName) return { type: 'FeatureCollection', features: [] };
 
   const slug = districtSlug(districtName);
-  if (_fieldsCache[slug]) return _fieldsCache[slug];
+  if (_fieldsCache[slug]) {
+    const i = _fieldsOrder.indexOf(slug);
+    if (i >= 0) {
+      _fieldsOrder.splice(i, 1);
+      _fieldsOrder.push(slug);
+    }
+    return _fieldsCache[slug];
+  }
 
   let data;
   try {
@@ -140,9 +149,24 @@ export async function fetchFields(districtName) {
     data = { type: 'FeatureCollection', features: [] };
   }
   _fieldsCache[slug] = data;
+  _fieldsOrder.push(slug);
   for (const feature of data.features) {
     _fieldById.set(String(feature.properties.id), feature);
   }
+
+  // Keep memory bounded when the user browses many districts. Only the
+  // current district is ever rendered, so older entries are safe to drop.
+  while (_fieldsOrder.length > MAX_CACHED_DISTRICTS) {
+    const evicted = _fieldsOrder.shift();
+    const old = _fieldsCache[evicted];
+    if (old) {
+      for (const feature of old.features) {
+        _fieldById.delete(String(feature.properties.id));
+      }
+      delete _fieldsCache[evicted];
+    }
+  }
+
   return data;
 }
 
