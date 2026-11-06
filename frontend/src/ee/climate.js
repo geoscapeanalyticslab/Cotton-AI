@@ -8,6 +8,7 @@
  *  - MODIS/061/MOD11A2           → land surface temperature
  */
 import { getEE } from './auth';
+import { evaluate } from './evaluate';
 
 const POINT_SCALE = 30;
 const FULL_SEASON_MONTHS = [4, 5, 6, 7, 8, 9, 10, 11];
@@ -147,10 +148,11 @@ export async function computeStats(geometry, year) {
     })
   );
 
-  // Single round-trip: get seasonal + monthly together
+  // Single round-trip: get seasonal + monthly together.
+  // `evaluate()` keeps the request async — `getInfo()` would block the tab.
   const [seasonalResult, monthlyResult] = await Promise.all([
-    ee.Dictionary(seasonalReduced).getInfo(),
-    monthlyFeatures.getInfo(),
+    evaluate(seasonalReduced),
+    evaluate(monthlyFeatures),
   ]);
 
   const tMeanV = seasonalResult.t_mean_c;

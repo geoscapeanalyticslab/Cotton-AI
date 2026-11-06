@@ -879,3 +879,32 @@
   color: var(--color-secondary);
   text-decoration: underline;
 }
+
+/* ── Live Earth Engine progress indicator ─────────────────────────────── */
+.ee-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--color-secondary);
+}
+
+.ee-live-spinner {
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--color-secondary);
+  border-radius: 50%;
+  animation: ee-spin 700ms linear infinite;
+}
+
+@keyframes ee-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

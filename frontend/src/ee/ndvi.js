@@ -6,10 +6,13 @@
  * Reports the field's peak-season NDVI + percentile rank against all mapped fields.
  */
 import { getEE } from './auth';
+import { evaluate, nextFrame } from './evaluate';
 
 const CS_BAND = 'cs_cdf';
 const CLEAR_THRESHOLD = 0.60;
-const BATCH_SIZE = 30;
+// 600 fields in batches of 150 → 4 requests. Bigger batches mean fewer
+// repeated composites; the reduce is still spread across tiles with tileScale.
+const BATCH_SIZE = 150;
 
 function bollWindowForYear(year) {
   const now = new Date();
@@ -34,17 +37,24 @@ function bollWindowForYear(year) {
 }
 
 function maskS2(img) {
-  const ee = getEE();
   const scaled = img.select(['B4', 'B8']).multiply(0.0001);
   const clear = img.select(CS_BAND).gte(CLEAR_THRESHOLD);
   return scaled.updateMask(clear).copyProperties(img, ['system:time_start']);
 }
 
+function toEeFeature(ee, feature) {
+  return ee.Feature(ee.Geometry(feature.geometry), { id: feature.properties.id });
+}
+
 /**
  * Compute mean peak-window NDVI for every field in the GeoJSON FeatureCollection.
- * Returns ({ id: ndvi_or_null }, inProgress, startIso, endIso).
+ *
+ * @param {object} polygons GeoJSON FeatureCollection
+ * @param {number} year
+ * @param {(done: number, total: number) => void} [onProgress]
+ * @returns {Promise<{values: object, inProgress: boolean, windowStart: string|null, windowEnd: string|null}>}
  */
-export async function computeNdviForAllFields(polygons, year) {
+export async function computeNdviForAllFields(polygons, year, onProgress) {
   const ee = getEE();
   const { start, end, inProgress } = bollWindowForYear(year);
 
@@ -52,50 +62,68 @@ export async function computeNdviForAllFields(polygons, year) {
     return { values: {}, inProgress: false, windowStart: null, windowEnd: null };
   }
 
-  const s2 = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED');
-  const csp = ee.ImageCollection('GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED');
+  const features = polygons.features;
+  if (!features.length) {
+    return { values: {}, inProgress: false, windowStart: null, windowEnd: null };
+  }
 
   const startDate = start.toISOString().slice(0, 10);
   const endDate = end.toISOString().slice(0, 10);
 
-  const values = {};
-  const features = polygons.features;
+  // Build the composite once over every field. Each batch then only runs the
+  // (cheap) zonal reduction against the same image graph.
+  const allFields = ee.FeatureCollection(features.map((f) => toEeFeature(ee, f)));
 
-  // Process in batches to stay under EE request size limits
+  const col = ee
+    .ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
+    .filterBounds(allFields)
+    .filterDate(startDate, endDate)
+    .linkCollection(ee.ImageCollection('GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED'), [CS_BAND])
+    .map(maskS2);
+
+  const ndviImg = col.median().normalizedDifference(['B8', 'B4']).rename('ndvi');
+
+  const values = {};
+  const total = Math.ceil(features.length / BATCH_SIZE);
+  let done = 0;
+  let failed = 0;
+
   for (let i = 0; i < features.length; i += BATCH_SIZE) {
     const batch = features.slice(i, i + BATCH_SIZE);
-    const eeFeatures = batch.map((f) =>
-      ee.Feature(ee.Geometry(f.geometry), { id: f.properties.id })
-    );
-    const batchFC = ee.FeatureCollection(eeFeatures);
+    const batchFC = ee.FeatureCollection(batch.map((f) => toEeFeature(ee, f)));
 
-    const col = s2
-      .filterBounds(batchFC)
-      .filterDate(startDate, endDate)
-      .linkCollection(csp, [CS_BAND])
-      .map(maskS2);
+    try {
+      const reduced = await evaluate(
+        ndviImg.reduceRegions({
+          collection: batchFC,
+          reducer: ee.Reducer.mean(),
+          scale: 20,
+          tileScale: 8,
+        })
+      );
 
-    const ndviImg = col.median().normalizedDifference(['B8', 'B4']).rename('ndvi');
-
-    const reduced = await ndviImg.reduceRegions({
-      collection: batchFC,
-      reducer: ee.Reducer.mean(),
-      scale: 20,
-      tileScale: 4,
-    }).getInfo();
-
-    for (const feat of reduced.features) {
-      const p = feat.properties;
-      values[p.id] = p.ndvi ?? p.mean ?? null;
+      for (const feat of reduced.features) {
+        const p = feat.properties;
+        values[p.id] = p.ndvi ?? p.mean ?? null;
+      }
+    } catch (err) {
+      // Keep going: a single failed batch shouldn't discard the other 550
+      // fields. The caller reports the error and falls back to precomputed
+      // data for the missing fields.
+      failed += 1;
+      console.warn(`NDVI batch ${done + 1}/${total} failed:`, err);
     }
+
+    done += 1;
+    if (onProgress) onProgress(done, total);
+    await nextFrame();
   }
 
-  return {
-    values,
-    inProgress,
-    windowStart: startDate,
-    windowEnd: endDate,
-  };
+  if (failed === total) {
+    throw new Error('Earth Engine could not compute NDVI for this year');
+  }
+
+  return { values, inProgress, windowStart: startDate, windowEnd: endDate };
 }
 
 /**

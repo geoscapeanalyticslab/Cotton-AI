@@ -52,6 +52,19 @@ function clearLiveError() {
   if (_onLiveError) _onLiveError(null);
 }
 
+// ── Live-query progress reporting ───────────────────────────────────────
+// NDVI percentiles need every mapped field, which takes several Earth Engine
+// round-trips. Surface progress so a slow query never looks like a freeze.
+let _onLiveProgress = null;
+
+export function setLiveProgressHandler(handler) {
+  _onLiveProgress = handler;
+}
+
+function reportLiveProgress(message) {
+  if (_onLiveProgress) _onLiveProgress(message);
+}
+
 export function setPolygonsRef(polygons) {
   _polygonsRef = polygons;
 }
@@ -59,6 +72,7 @@ export function setPolygonsRef(polygons) {
 export function clearLiveCaches() {
   Object.keys(_liveStatsCache).forEach((k) => delete _liveStatsCache[k]);
   Object.keys(_liveNdviCache).forEach((k) => delete _liveNdviCache[k]);
+  reportLiveProgress(null);
 }
 
 // ── Precomputed static data (fallback) ─────────────────────────────────
@@ -139,12 +153,15 @@ export async function fetchStats(fid, year) {
     const feature = _polygonsRef.features.find((f) => f.properties.id === fid);
     if (feature) {
       try {
+        reportLiveProgress('Querying ERA5-Land, CHIRPS and MODIS…');
         const stats = await computeStats(feature.geometry, year);
         _liveStatsCache[cacheKey] = stats;
         clearLiveError();
         return stats;
       } catch (err) {
         reportLiveError('Earth Engine climate query failed', err);
+      } finally {
+        reportLiveProgress(null);
       }
     }
   }
@@ -169,7 +186,12 @@ export async function fetchYield(fid, year) {
   if (isEEReady() && _polygonsRef) {
     if (!_liveNdviCache[year]) {
       try {
-        const result = await computeNdviForAllFields(_polygonsRef, year);
+        const total = _polygonsRef.features.length;
+        const result = await computeNdviForAllFields(_polygonsRef, year, (done, batches) => {
+          reportLiveProgress(
+            `Computing NDVI for ${total.toLocaleString()} fields (${done}/${batches})…`
+          );
+        });
         _liveNdviCache[year] = {
           values: result.values,
           inProgress: result.inProgress,
@@ -180,6 +202,8 @@ export async function fetchYield(fid, year) {
       } catch (err) {
         reportLiveError('Earth Engine NDVI query failed', err);
         _liveNdviCache[year] = { values: {}, inProgress: false, window: null };
+      } finally {
+        reportLiveProgress(null);
       }
     }
 

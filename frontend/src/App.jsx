@@ -14,6 +14,7 @@ import {
   setPolygonsRef,
   clearLiveCaches,
   setLiveErrorHandler,
+  setLiveProgressHandler,
 } from './api';
 import { signIn, signOut, preloadEarthEngine } from './ee/auth';
 import './dashboard.css';
@@ -54,6 +55,7 @@ export default function App() {
   const [eeSigningIn, setEeSigningIn] = useState(false);
   const [eeError, setEeError] = useState(null);
   const [eeLiveError, setEeLiveError] = useState(null);
+  const [eeLiveStatus, setEeLiveStatus] = useState(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -68,7 +70,11 @@ export default function App() {
 
   useEffect(() => {
     setLiveErrorHandler(setEeLiveError);
-    return () => setLiveErrorHandler(null);
+    setLiveProgressHandler(setEeLiveStatus);
+    return () => {
+      setLiveErrorHandler(null);
+      setLiveProgressHandler(null);
+    };
   }, []);
 
   useEffect(() => {
@@ -155,6 +161,7 @@ export default function App() {
     signOut();
     setEeAuthenticated(false);
     setEeLiveError(null);
+    setEeLiveStatus(null);
     clearLiveCaches();
   }, []);
 
@@ -175,6 +182,12 @@ export default function App() {
         <div className="app-header-actions">
           {districts && <span className="field-count">{districts.features.length} Districts</span>}
           {polygons && <span className="field-count">{polygons.features.length} Mapped Fields</span>}
+          {eeLiveStatus && (
+            <span className="ee-live-status" title={eeLiveStatus}>
+              <span className="ee-live-spinner" />
+              {eeLiveStatus}
+            </span>
+          )}
 
           {/* EE Auth Button */}
           {eeAuthenticated ? (
