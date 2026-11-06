@@ -2,6 +2,8 @@
 .env.*
 frontend/.env
 frontend/.env.*
+# Generated from docs/data by frontend/scripts/sync-data.mjs
+frontend/public/data/
 venv/
 __pycache__/
 *.pyc

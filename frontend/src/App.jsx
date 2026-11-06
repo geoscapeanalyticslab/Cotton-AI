@@ -4,14 +4,15 @@ import Sidebar from './components/Sidebar';
 import ChartsPanel from './components/ChartsPanel';
 import YieldPanel from './components/YieldPanel';
 import {
-  fetchPolygons,
+  fetchFields,
+  fetchFieldPoints,
   fetchDistricts,
   fetchAllDistrictStats,
   fetchDistrictStats,
   fetchStats,
   fetchYield,
   fetchSindhYieldHistory,
-  setPolygonsRef,
+  setFieldPointsRef,
   clearLiveCaches,
   setLiveErrorHandler,
   setLiveProgressHandler,
@@ -30,6 +31,7 @@ function getInitialTheme() {
 export default function App() {
   const [theme, setTheme] = useState(getInitialTheme);
   const [polygons, setPolygons] = useState(null);
+  const [fieldPoints, setFieldPoints] = useState(null);
   const [districts, setDistricts] = useState(null);
   const [allDistrictStats, setAllDistrictStats] = useState(null);
   const [loadError, setLoadError] = useState(null);
@@ -78,14 +80,36 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    fetchPolygons().then((data) => {
-      setPolygons(data);
-      setPolygonsRef(data);
-    }).catch((e) => setLoadError(e.message));
     fetchDistricts().then(setDistricts).catch(() => {});
     fetchAllDistrictStats().then(setAllDistrictStats).catch(() => {});
     fetchSindhYieldHistory().then(setSindhHistory).catch((e) => setSindhHistoryError(e.message));
+    fetchFieldPoints()
+      .then((points) => {
+        setFieldPoints(points);
+        setFieldPointsRef(points);
+      })
+      .catch(() => {});
   }, []);
+
+  // Load only the selected district's field polygons (0.5–2.3 MB instead of
+  // the 19 MB province-wide file), so the map is usable immediately.
+  useEffect(() => {
+    if (!selectedDistrict) {
+      setPolygons(null);
+      return undefined;
+    }
+    let cancelled = false;
+    setPolygons(null);
+    setLoadError(null);
+    fetchFields(selectedDistrict)
+      .then((data) => {
+        if (!cancelled) setPolygons(data);
+      })
+      .catch((e) => {
+        if (!cancelled) setLoadError(e.message);
+      });
+    return () => { cancelled = true; };
+  }, [selectedDistrict]);
 
   // Fetch stats for active district
   useEffect(() => {
@@ -181,7 +205,7 @@ export default function App() {
         </div>
         <div className="app-header-actions">
           {districts && <span className="field-count">{districts.features.length} Districts</span>}
-          {polygons && <span className="field-count">{polygons.features.length} Mapped Fields</span>}
+          {fieldPoints && <span className="field-count">{fieldPoints.length} Mapped Fields</span>}
           {eeLiveStatus && (
             <span className="ee-live-status" title={eeLiveStatus}>
               <span className="ee-live-spinner" />

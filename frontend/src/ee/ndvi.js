@@ -42,19 +42,23 @@ function maskS2(img) {
   return scaled.updateMask(clear).copyProperties(img, ['system:time_start']);
 }
 
-function toEeFeature(ee, feature) {
-  return ee.Feature(ee.Geometry(feature.geometry), { id: feature.properties.id });
+function toEePoint(ee, point) {
+  return ee.Feature(ee.Geometry.Point([point.lon, point.lat]), { id: point.id });
 }
 
 /**
- * Compute mean peak-window NDVI for every field in the GeoJSON FeatureCollection.
+ * Compute mean peak-window NDVI for every mapped field.
  *
- * @param {object} polygons GeoJSON FeatureCollection
+ * Uses the field centroids (600 points) rather than the full polygons: each
+ * point samples the same 20 m Sentinel-2 grid, so the regional percentile is
+ * preserved while the request payload stays tiny.
+ *
+ * @param {Array<{id: number, lat: number, lon: number}>} points
  * @param {number} year
  * @param {(done: number, total: number) => void} [onProgress]
  * @returns {Promise<{values: object, inProgress: boolean, windowStart: string|null, windowEnd: string|null}>}
  */
-export async function computeNdviForAllFields(polygons, year, onProgress) {
+export async function computeNdviForAllFields(points, year, onProgress) {
   const ee = getEE();
   const { start, end, inProgress } = bollWindowForYear(year);
 
@@ -62,8 +66,8 @@ export async function computeNdviForAllFields(polygons, year, onProgress) {
     return { values: {}, inProgress: false, windowStart: null, windowEnd: null };
   }
 
-  const features = polygons.features;
-  if (!features.length) {
+  const items = Array.isArray(points) ? points : [];
+  if (!items.length) {
     return { values: {}, inProgress: false, windowStart: null, windowEnd: null };
   }
 
@@ -72,11 +76,11 @@ export async function computeNdviForAllFields(polygons, year, onProgress) {
 
   // Build the composite once over every field. Each batch then only runs the
   // (cheap) zonal reduction against the same image graph.
-  const allFields = ee.FeatureCollection(features.map((f) => toEeFeature(ee, f)));
+  const allPoints = ee.FeatureCollection(items.map((p) => toEePoint(ee, p)));
 
   const col = ee
     .ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
-    .filterBounds(allFields)
+    .filterBounds(allPoints)
     .filterDate(startDate, endDate)
     .linkCollection(ee.ImageCollection('GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED'), [CS_BAND])
     .map(maskS2);
@@ -84,13 +88,13 @@ export async function computeNdviForAllFields(polygons, year, onProgress) {
   const ndviImg = col.median().normalizedDifference(['B8', 'B4']).rename('ndvi');
 
   const values = {};
-  const total = Math.ceil(features.length / BATCH_SIZE);
+  const total = Math.ceil(items.length / BATCH_SIZE);
   let done = 0;
   let failed = 0;
 
-  for (let i = 0; i < features.length; i += BATCH_SIZE) {
-    const batch = features.slice(i, i + BATCH_SIZE);
-    const batchFC = ee.FeatureCollection(batch.map((f) => toEeFeature(ee, f)));
+  for (let i = 0; i < items.length; i += BATCH_SIZE) {
+    const batch = items.slice(i, i + BATCH_SIZE);
+    const batchFC = ee.FeatureCollection(batch.map((p) => toEePoint(ee, p)));
 
     try {
       const reduced = await evaluate(

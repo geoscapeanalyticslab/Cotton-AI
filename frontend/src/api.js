@@ -31,7 +31,15 @@ async function loadStatic(name) {
 const _liveStatsCache = {};   // { [`${fid}_${year}`]: stats }
 const _liveNdviCache = {};    // { [year]: { values, inProgress, window } }
 
-let _polygonsRef = null;
+// Field geometry is loaded one district at a time (60 fields each) instead of
+// the full 19 MB national collection. `_fieldById` lets the stats/yield path
+// find the geometry for whichever field the user has selected.
+const _fieldsCache = {};          // { [districtSlug]: FeatureCollection }
+const _fieldById = new Map();     // field id → Feature
+
+// 600 centroids (40 KB) — enough for a live NDVI percentile across every
+// mapped field without shipping or querying the full polygons.
+let _fieldPointsRef = null;
 
 // ── Live-query error reporting ──────────────────────────────────────────
 // A failed Earth Engine call falls back to precomputed data, but the user
@@ -65,8 +73,8 @@ function reportLiveProgress(message) {
   if (_onLiveProgress) _onLiveProgress(message);
 }
 
-export function setPolygonsRef(polygons) {
-  _polygonsRef = polygons;
+export function setFieldPointsRef(points) {
+  _fieldPointsRef = Array.isArray(points) ? points : null;
 }
 
 export function clearLiveCaches() {
@@ -102,16 +110,47 @@ async function loadFieldNdvi(year) {
 }
 
 // ── Cached static data ─────────────────────────────────────────────────
-let _polygonsCache = null;
-let _districtsCache = null;
 let _allStatsCache = null;
-let _yieldHistoryCache = null;
+let _allStatsPromise = null;
 
 // ── API functions ───────────────────────────────────────────────────────
-export async function fetchPolygons() {
-  const data = await apiCall('/polygons');
-  if (data) return data;
-  return loadStatic('cotton_polygons.geojson');
+function districtSlug(name) {
+  return String(name)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Cotton-field polygons for one district. Files live in `data/fields/` and
+ * are 0.5–2.3 MB each, so the map stays responsive instead of parsing the
+ * 19 MB province-wide collection up front.
+ */
+export async function fetchFields(districtName) {
+  if (!districtName) return { type: 'FeatureCollection', features: [] };
+
+  const slug = districtSlug(districtName);
+  if (_fieldsCache[slug]) return _fieldsCache[slug];
+
+  let data;
+  try {
+    data = await loadStatic(`fields/${slug}.geojson`);
+  } catch {
+    // Districts without mapped cotton fields have no file.
+    data = { type: 'FeatureCollection', features: [] };
+  }
+  _fieldsCache[slug] = data;
+  for (const feature of data.features) {
+    _fieldById.set(String(feature.properties.id), feature);
+  }
+  return data;
+}
+
+/** Centroids for every mapped field (used for fast live NDVI). */
+export async function fetchFieldPoints() {
+  const points = await loadStatic('field_points.json');
+  setFieldPointsRef(points);
+  return points;
 }
 
 export async function fetchDistrict() {
@@ -125,9 +164,20 @@ export async function fetchDistricts() {
 }
 
 export async function fetchAllDistrictStats() {
-  const data = await apiCall('/districts/stats');
-  if (data) return data;
-  return loadStatic('sindh_district_stats.json');
+  if (_allStatsCache) return _allStatsCache;
+  // Cache the in-flight promise too: App and the district-stats effect both
+  // ask for this file on mount, which otherwise downloads it twice.
+  if (!_allStatsPromise) {
+    _allStatsPromise = (async () => {
+      const data = await apiCall('/districts/stats');
+      if (data) return data;
+      return loadStatic('sindh_district_stats.json');
+    })().then((data) => {
+      _allStatsCache = data;
+      return data;
+    });
+  }
+  return _allStatsPromise;
 }
 
 export async function fetchDistrictStats(districtName) {
@@ -146,11 +196,11 @@ export async function fetchDistrictStats(districtName) {
  */
 export async function fetchStats(fid, year) {
   // 1. Live EE query if authenticated
-  if (isEEReady() && _polygonsRef) {
+  if (isEEReady() && _fieldById.size) {
     const cacheKey = `${fid}_${year}`;
     if (_liveStatsCache[cacheKey]) return _liveStatsCache[cacheKey];
 
-    const feature = _polygonsRef.features.find((f) => f.properties.id === fid);
+    const feature = _fieldById.get(String(fid));
     if (feature) {
       try {
         reportLiveProgress('Querying ERA5-Land, CHIRPS and MODIS…');
@@ -183,11 +233,11 @@ export async function fetchStats(fid, year) {
  */
 export async function fetchYield(fid, year) {
   // 1. Live EE NDVI if authenticated
-  if (isEEReady() && _polygonsRef) {
+  if (isEEReady() && _fieldPointsRef?.length) {
     if (!_liveNdviCache[year]) {
       try {
-        const total = _polygonsRef.features.length;
-        const result = await computeNdviForAllFields(_polygonsRef, year, (done, batches) => {
+        const total = _fieldPointsRef.length;
+        const result = await computeNdviForAllFields(_fieldPointsRef, year, (done, batches) => {
           reportLiveProgress(
             `Computing NDVI for ${total.toLocaleString()} fields (${done}/${batches})…`
           );
