@@ -67,6 +67,23 @@ The same values are read from repository secrets at build time in
 
 A project **number** works as well as a project **ID**.
 
+## Legal pages
+
+| Page | URL |
+|---|---|
+| Privacy Policy | https://geoscapeanalyticslab.github.io/Cotton-AI/privacy.html |
+| Terms of Service | https://geoscapeanalyticslab.github.io/Cotton-AI/terms.html |
+
+Both are linked from the dashboard footer. The text lives in
+`frontend/src/legal/content.js` and is rendered by `frontend/src/legal/LegalPage.jsx`;
+the two HTML files are separate Vite entry points, so the pages have stable URLs
+that can be registered with Google.
+
+The privacy policy URL above should also be filled in at
+https://console.cloud.google.com/auth/branding?project=1014576056812
+(App privacy policy link) — Google requires it before an OAuth app can be
+published for use outside its test users.
+
 ## Development
 
 ```bash
